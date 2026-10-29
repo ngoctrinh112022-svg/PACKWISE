@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PACKWISE | Balo cho mọi hành trình</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="site-header">
+    <a class="logo" href="index.html"><span class="logo-mark">P</span> PACKWISE</a>
+    <nav class="main-nav">
+      <a href="#home">Trang chủ</a>
+      <a href="#products">Balo du lịch</a>
+      <a href="#about">Về PACKWISE</a>
+      <a href="#smart-tools">Gợi ý balo</a>
+      <a href="#my-orders">Đơn hàng của tôi</a>
+    </nav>
+    <div class="header-actions">
+      <button class="icon-btn" id="cartToggle" aria-label="Mở giỏ hàng">Giỏ hàng <span id="cartCount" class="count">0</span></button>
+      <a class="admin-link" href="admin.html">Quản trị ↗</a>
+    </div>
+  </header>
+
+  <main>
+    <section class="hero" id="home">
+      <div class="hero-copy">
+        <p class="eyebrow">PACKWISE • READY FOR YOUR NEXT TRIP</p>
+        <h1>Mang theo điều cần thiết.<br><span>Sẵn sàng đi xa.</span></h1>
+        <p class="hero-desc">Tìm chiếc balo phù hợp với lịch trình, vật dụng và phong cách của bạn. Gọn gàng khi đi học, thoải mái cho những chuyến đi.</p>
+        <a class="primary-btn" href="#products">Khám phá balo <span>→</span></a>
+        <div class="hero-notes"><span>✓ Dễ chọn theo nhu cầu</span><span>✓ Thông tin rõ ràng</span></div>
+      </div>
+      <div class="hero-visual">
+        <div class="hero-bubble bubble-one"></div><div class="hero-bubble bubble-two"></div>
+        <div class="hero-product">
+          <div class="bag-shape"><div class="bag-pocket"></div><div class="bag-strap left"></div><div class="bag-strap right"></div><div class="bag-handle"></div></div>
+          <div class="hero-sticker">GO<br>LIGHT.</div>
+        </div>
+        <div class="visual-caption"><span>01 / EVERYDAY & TRAVEL</span><span>PACKWISE COLLECTION</span></div>
+      </div>
+    </section>
+
+    <section class="sale-section" id="sale">
+      <div class="section-heading"><div><p class="eyebrow">SPECIAL PICKS</p><h2>Balo đang giảm giá</h2><p class="muted">Ưu đãi được cập nhật tự động theo sản phẩm đang áp dụng giảm giá.</p></div></div>
+      <div class="sale-grid" id="saleProducts"></div>
+    </section>
+
+    <section class="benefits" id="about">
+      <div><span class="benefit-icon">↗</span><div><strong>Chọn đúng nhu cầu</strong><p>Thông tin balo dễ theo dõi</p></div></div>
+      <div><span class="benefit-icon">◇</span><div><strong>So sánh thuận tiện</strong><p>Tham khảo trước khi quyết định</p></div></div>
+      <div><span class="benefit-icon">□</span><div><strong>Mua sắm đơn giản</strong><p>Giỏ hàng và đặt hàng thuận tiện</p></div></div>
+    </section>
+
+    <section class="products-section" id="products">
+      <div class="section-heading">
+        <div><p class="eyebrow">THE BACKPACK EDIT</p><h2>Tìm balo hợp với bạn</h2><p class="muted">Chọn theo nhu cầu, xem thông tin rồi thêm vào giỏ hàng.</p></div>
+        <div class="product-tools">
+          <input id="searchInput" type="search" placeholder="Tìm tên balo..." aria-label="Tìm tên balo">
+          <select id="categoryFilter" aria-label="Lọc theo nhu cầu"><option value="all">Tất cả nhu cầu</option><option value="travel">Du lịch</option><option value="daily">Hằng ngày</option><option value="air">Đi máy bay</option></select>
+        </div>
+      </div>
+      <div class="product-grid" id="productGrid"></div>
+      <div class="empty-state hidden" id="emptyState">Không tìm thấy sản phẩm phù hợp. Thử từ khóa khác nha.</div>
+    </section>
+
+
+    <section class="smart-tools-section" id="smart-tools">
+      <div class="section-heading smart-tools-heading">
+        <div>
+          <p class="eyebrow">FIND YOUR BACKPACK</p>
+          <h2>Chọn balo theo hành trình</h2>
+          <p class="muted">Chọn mục đích, thời gian sử dụng và ngân sách để tìm những mẫu balo phù hợp nhất.</p>
+        </div>
+      </div>
+      <div class="smart-tools-grid">
+        <section class="smart-tool-card" aria-labelledby="recommendTitle">
+          <h3 id="recommendTitle">Tìm balo phù hợp</h3>
+          <form id="recommendForm">
+            <label>Mục đích sử dụng
+              <select name="purpose" required>
+                <option value="travel">Du lịch</option>
+                <option value="daily">Đi học / hằng ngày</option>
+                <option value="air">Đi máy bay</option>
+              </select>
+            </label>
+            <label>Thời gian sử dụng
+              <select name="duration" required>
+                <option value="short">Trong ngày hoặc 1 ngày</option>
+                <option value="weekend">2–3 ngày</option>
+                <option value="long">Từ 4 ngày trở lên</option>
+              </select>
+            </label>
+            <label>Ngân sách
+              <select name="budget" required>
+                <option value="500000">Dưới 500.000 ₫</option>
+                <option value="800000" selected>Đến 800.000 ₫</option>
+                <option value="1000000">Đến 1.000.000 ₫</option>
+                <option value="999999999">Không giới hạn ngân sách</option>
+              </select>
+            </label>
+            <button class="primary-btn full-btn" type="submit">Tìm balo phù hợp →</button>
+          </form>
+          <div id="recommendResults" class="recommend-results" aria-live="polite">
+            <p class="muted">Chọn nhu cầu rồi nhấn “Tìm balo phù hợp”.</p>
+          </div>
+        </section>
+
+        <section class="smart-tool-card preview-card" aria-labelledby="previewTitle">
+          <h3 id="previewTitle">Xem trước mẫu balo</h3>
+          <p class="muted">Chọn một mẫu trong danh sách để xem hình minh họa lớn hơn và thông tin sản phẩm.</p>
+          <label>Chọn balo
+            <select id="previewProductSelect" aria-label="Chọn balo để xem trước">
+              <option value="">Đang tải sản phẩm...</option>
+            </select>
+          </label>
+          <div class="product-preview-stage" id="productPreviewStage" aria-live="polite">
+            <div class="preview-bag-art" id="previewBagArt" style="--bag:#315f4f">
+              <div class="preview-bag-handle"></div>
+              <div class="preview-bag-pocket"><span>P</span></div>
+            </div>
+          </div>
+          <div class="preview-product-info" id="previewProductInfo">
+            <p class="muted">Chọn balo để xem thông tin.</p>
+          </div>
+          <div class="ar-preview-panel" aria-labelledby="arPreviewTitle">
+            <div class="ar-preview-heading">
+              <h4 id="arPreviewTitle">Thử balo bằng camera</h4>
+              <p class="muted">Bật camera để xem hình minh họa balo chồng lên khung hình. Đây là bản xem thử, chưa tự nhận diện cơ thể.</p>
+            </div>
+            <div class="ar-camera-stage" id="arCameraStage">
+              <video id="arCameraVideo" autoplay playsinline muted></video>
+              <div class="ar-camera-placeholder" id="arCameraPlaceholder"><span>📷</span><p>Camera đang tắt</p><small>Nhấn “Bật camera” để bắt đầu</small></div>
+              <div class="ar-bag-overlay" id="arBagOverlay" aria-hidden="true"><div class="ar-bag-handle"></div><div class="ar-bag-pocket"><span>P</span></div></div>
+            </div>
+            <div class="ar-camera-actions"><button type="button" class="primary-btn" id="arStartCamera">Bật camera</button><button type="button" class="secondary-btn" id="arStopCamera" disabled>Tắt camera</button><span id="arCameraMessage" class="muted" aria-live="polite">Chọn mẫu balo phía trên rồi bật camera.</span></div>
+          </div>
+        </section>
+      </div>
+    </section>
+
+    <section class="order-lookup-section" id="my-orders">
+      <div class="section-heading"><div><p class="eyebrow">ORDER TRACKING</p><h2>Đơn hàng của tôi</h2><p class="muted">Nhập số điện thoại đã dùng khi đặt hàng để xem mã đơn và trạng thái mới nhất.</p></div></div>
+      <form id="orderLookupForm" class="order-lookup-form"><label>Số điện thoại<input name="phone" required inputmode="tel" placeholder="Nhập số điện thoại đặt hàng"></label><button class="primary-btn" type="submit">Tra cứu đơn hàng →</button></form>
+      <div id="orderLookupResults" class="order-lookup-results" aria-live="polite"></div>
+    </section>
+
+    <section class="compare-section">
+      <div class="compare-intro"><p class="eyebrow">MAKE A SMART CHOICE</p><h2>Đang phân vân giữa vài chiếc?</h2><p class="muted">Chọn tối đa 3 balo để đối chiếu giá, dung tích, kích thước và chất liệu.</p></div>
+      <div id="comparePicker" class="compare-picker"></div>
+      <button class="secondary-btn" id="compareBtn">So sánh balo đã chọn</button>
+      <div id="compareResult" class="compare-result"></div>
+    </section>
+  </main>
+
+  <footer class="footer"><a class="logo" href="#home"><span class="logo-mark">P</span> PACKWISE</a><p>Balo phù hợp, hành trình nhẹ nhàng hơn.</p></footer>
+
+  <div class="drawer-backdrop hidden" id="drawerBackdrop"></div>
+  <aside class="cart-drawer" id="cartDrawer" aria-label="Giỏ hàng">
+    <div class="drawer-head"><div><p class="eyebrow">YOUR BAG</p><h2>Giỏ hàng</h2></div><button class="close-btn" id="closeCart" aria-label="Đóng giỏ hàng">×</button></div>
+    <div id="cartItems" class="cart-items"></div>
+    <div class="cart-bottom"><div class="total-row"><span>Tạm tính</span><strong id="cartTotal">0 ₫</strong></div><button class="primary-btn full-btn" id="checkoutBtn">Tiến hành đặt hàng →</button></div>
+  </aside>
+
+  <div class="modal-backdrop hidden" id="checkoutModal">
+    <div class="modal">
+      <button class="close-btn modal-close" id="closeCheckout" aria-label="Đóng">×</button>
+      <p class="eyebrow">ONE LAST STEP</p><h2>Thông tin đặt hàng</h2>
+      <form id="checkoutForm">
+        <label>Họ và tên<input name="customerName" required placeholder="Nhập họ tên"></label>
+        <label>Số điện thoại<input name="phone" required inputmode="tel" placeholder="Nhập số điện thoại"></label>
+        <label>Địa chỉ nhận hàng<textarea name="address" required rows="2" placeholder="Số nhà, đường, phường..."></textarea></label>
+        <div class="coupon-box"><label>Mã giảm giá<select id="couponSelect" name="coupon"><option value="">Không sử dụng mã</option><option value="PACK10">PACK10 — giảm 10%</option><option value="PACK15">PACK15 — giảm 15%</option><option value="PACK20">PACK20 — giảm 20%</option></select></label><button class="secondary-btn" id="applyCouponBtn" type="button">Áp dụng mã</button><p id="couponMessage" class="muted" aria-live="polite">Chọn mã rồi nhấn “Áp dụng mã”.</p></div>
+        <div class="checkout-totals"><div><span>Tạm tính</span><strong id="checkoutSubtotal">0 ₫</strong></div><div><span>Giảm giá mã</span><strong id="checkoutDiscount">0 ₫</strong></div><div class="checkout-final"><span>Thành tiền</span><strong id="checkoutTotal">0 ₫</strong></div></div>
+        <button class="primary-btn full-btn" type="submit">Xác nhận đơn hàng</button>
+      </form>
+      
+    </div>
+  </div>
+  <div class="toast" id="toast" role="status"></div>
+  <script src="script.js"></script>
+</body>
+</html>

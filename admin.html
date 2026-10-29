@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quản trị | PACKWISE</title><link rel="stylesheet" href="style.css">
+</head>
+<body class="admin-body">
+  <header class="site-header admin-header"><a class="logo" href="index.html"><span class="logo-mark">P</span> PACKWISE <span class="admin-tag">ADMIN</span></a><a class="admin-link" href="index.html">← Về cửa hàng</a></header>
+  <main class="admin-main">
+    <section class="login-card" id="loginPanel">
+      <p class="eyebrow">PACKWISE CONTROL PANEL</p><h1>Đăng nhập quản trị</h1><p class="muted">Đăng nhập mô phỏng để xem chức năng quản lý sản phẩm và đơn hàng mẫu.</p>
+      <form id="loginForm"><label>Tên đăng nhập<input name="username" required value="admin"></label><label>Mật khẩu<input name="password" type="password" required value="123456"></label><button class="primary-btn full-btn" type="submit">Đăng nhập →</button></form>
+      <p class="tiny-note">Tài khoản demo: admin / 123456. Không dùng cho hệ thống thực tế.</p>
+    </section>
+    <section id="adminPanel" class="hidden">
+      <div class="admin-title"><div><p class="eyebrow">CONTROL PANEL</p><h1>Quản lý PACKWISE</h1><p class="muted">Dữ liệu mẫu được lưu trong trình duyệt này.</p></div><button class="secondary-btn" id="logoutBtn">Đăng xuất</button></div>
+      <div class="admin-stats"><div><span>Sản phẩm đang hiển thị</span><strong id="visibleProducts">0</strong></div><div><span>Đơn hàng mẫu</span><strong id="orderCount">0</strong></div><div><span>Giá trị đơn hàng mẫu</span><strong id="orderValue">0 ₫</strong></div></div>
+      <div class="admin-columns">
+        <section class="admin-card"><h2 id="formTitle">Thêm sản phẩm</h2><form id="productForm">
+          <input type="hidden" name="id"><label>Tên sản phẩm<input name="name" required placeholder="Ví dụ: Balo Trek 30L"></label>
+          <div class="form-row"><label>Giá bán (₫)<input name="price" type="number" min="0" required placeholder="690000"></label><label>Dung tích (L)<input name="capacity" type="number" min="1" required placeholder="25"></label></div>
+          <div class="form-row"><label>Kích thước<input name="size" required placeholder="48 × 30 × 18 cm"></label><label>Chất liệu<input name="material" required placeholder="Polyester"></label></div>
+          <label>Nhóm nhu cầu<select name="category"><option value="travel">Du lịch</option><option value="daily">Hằng ngày</option><option value="air">Đi máy bay</option></select></label>
+          <label>Mô tả<textarea name="description" rows="2" placeholder="Mô tả ngắn về sản phẩm"></textarea></label>
+          <div class="form-row"><button class="primary-btn" type="submit">Lưu sản phẩm</button><button class="secondary-btn" type="button" id="resetProductForm">Làm mới</button></div>
+        </form></section>
+        <section class="admin-card"><h2>Danh sách sản phẩm</h2><div id="adminProductList" class="admin-product-list"></div></section>
+      </div>
+      <section class="admin-card orders-card"><h2>Đơn hàng mô phỏng</h2><div id="adminOrders"></div></section>
+    </section>
+  </main>
+  <div class="toast" id="toast" role="status"></div><script src="script.js"></script>
+</body></html>
